@@ -64,8 +64,8 @@ http://localhost:3000/index.html
 
 ## 文档
 
-需求文档见：
+产品需求文档（PRD）见：
 
 ```text
-docs/REQUIREMENTS.md
+docs/PRD.md
 ```

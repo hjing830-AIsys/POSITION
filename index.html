@@ -58,7 +58,7 @@
 
       .app {
         min-height: 100dvh;
-        max-width: 900px;
+        max-width: 430px;
         margin: 0 auto;
         padding-bottom: calc(108px + env(safe-area-inset-bottom));
         background:
@@ -109,7 +109,7 @@
       }
 
       main {
-        padding: 54px 14px 0;
+        padding: 42px 8px 0;
       }
 
       .section-head {
@@ -226,8 +226,8 @@
       .position-card {
         position: relative;
         overflow: visible;
-        padding-left: 8px;
-        min-width: 870px;
+        padding-left: 6px;
+        min-width: 0;
         margin-bottom: 0;
         border-radius: 0;
         background: transparent;
@@ -236,85 +236,90 @@
 
       .position-card::before {
         position: absolute;
-        top: 16px;
-        bottom: 16px;
-        left: 4px;
-        width: 5px;
+        top: 8px;
+        bottom: 8px;
+        left: 2px;
+        width: 3px;
         border-radius: 999px;
         background: var(--green);
-        box-shadow: 0 0 16px rgba(50, 215, 75, 0.45);
+        box-shadow: 0 0 10px rgba(50, 215, 75, 0.45);
         content: "";
       }
 
       .position-card.risk::before {
         background: var(--red);
-        box-shadow: 0 0 18px rgba(255, 69, 58, 0.75);
+        box-shadow: 0 0 12px rgba(255, 69, 58, 0.75);
         animation: pulseRed 0.86s ease-in-out infinite;
       }
 
       .position-main {
         display: grid;
-        grid-template-columns: 230px 90px 90px 120px 110px 120px 110px;
+        grid-template-columns:
+          minmax(0, 1.55fr)
+          minmax(0, 0.82fr)
+          minmax(0, 0.72fr)
+          minmax(0, 0.72fr)
+          minmax(0, 0.88fr)
+          minmax(0, 0.82fr)
+          minmax(0, 0.9fr)
+          minmax(0, 0.68fr);
         gap: 0;
         align-items: stretch;
         width: 100%;
-        min-height: 54px;
-        padding: 0 10px 0 18px;
+        min-width: 0;
+        min-height: 34px;
+        padding: 2px 4px 2px 10px;
         color: inherit;
         background: transparent;
       }
 
       .monitor-scroll {
         position: relative;
-        overflow-x: auto;
-        padding-bottom: 8px;
-        margin: 0 -8px;
-        scrollbar-width: thin;
+        overflow-x: visible;
+        padding-bottom: 4px;
+        margin: 0;
       }
 
       .monitor-table {
-        min-width: 870px;
+        min-width: 0;
+        width: 100%;
         overflow: visible;
-        border-radius: 28px;
-        background:
-          linear-gradient(90deg, rgba(14, 14, 20, 0.99) 0 230px, rgba(255, 255, 255, 0.018) 230px 320px, rgba(255, 255, 255, 0.012) 320px 410px, rgba(255, 255, 255, 0.03) 410px 530px, rgba(255, 255, 255, 0.01) 530px 640px, rgba(255, 255, 255, 0.025) 640px 760px, rgba(255, 255, 255, 0.01) 760px);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
       }
 
       .table-head {
         display: grid;
-        grid-template-columns: 230px 90px 90px 120px 110px 120px 110px;
-        min-width: 870px;
+        grid-template-columns:
+          minmax(0, 1.55fr)
+          minmax(0, 0.82fr)
+          minmax(0, 0.72fr)
+          minmax(0, 0.72fr)
+          minmax(0, 0.88fr)
+          minmax(0, 0.82fr)
+          minmax(0, 0.9fr)
+          minmax(0, 0.68fr);
+        min-width: 0;
+        width: 100%;
         margin: 0;
-        padding: 0 10px 7px 18px;
+        padding: 0 4px 3px 10px;
         color: var(--muted);
-        font-size: 23px;
-        font-weight: 900;
-        letter-spacing: -0.04em;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
       }
 
       .table-head span,
-      .stock-cell {
-        padding: 0 10px;
-      }
-
-      .table-head span:first-child,
-      .stock-cell {
-        position: sticky;
-        left: 0;
-        z-index: 4;
-        background: linear-gradient(90deg, #101017 89%, rgba(16, 16, 23, 0));
-        box-shadow: 18px 0 22px rgba(7, 7, 11, 0.48);
-      }
-
-      .table-head span:first-child {
-        z-index: 5;
+      .stock-cell,
+      .data-cell {
+        padding: 0 2px;
       }
 
       .stock-cell {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 2px;
         justify-content: center;
         min-width: 0;
       }
@@ -322,18 +327,24 @@
       .stock-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 4px;
+        gap: 2px;
+      }
+
+      .stock-actions .pill {
+        min-height: 14px;
+        padding: 2px 4px;
+        font-size: 7px;
       }
 
       .stock-cell input:first-child {
-        font-size: 27px;
-        font-weight: 900;
-        letter-spacing: -0.04em;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
       }
 
       .stock-cell input:last-child {
         color: var(--muted);
-        font-size: 20px;
+        font-size: 7px;
         text-transform: uppercase;
       }
 
@@ -342,7 +353,6 @@
         min-width: 0;
         flex-direction: column;
         justify-content: center;
-        padding: 0 12px;
       }
 
       .data-cell small {
@@ -352,21 +362,22 @@
       .data-cell strong,
       .data-cell input {
         overflow: hidden;
-        font-size: 22px;
-        font-weight: 850;
-        letter-spacing: -0.05em;
+        font-size: 7px;
+        font-weight: 750;
+        letter-spacing: -0.03em;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
 
       .badge {
-        border-radius: 8px;
-        min-width: 72px;
-        padding: 6px 10px;
+        border-radius: 4px;
+        min-width: 0;
+        width: 100%;
+        padding: 2px 3px;
         background: rgba(50, 215, 75, 0.18);
         color: var(--green);
-        font-size: 20px;
-        font-weight: 900;
+        font-size: 7px;
+        font-weight: 800;
         text-align: center;
         white-space: nowrap;
       }
@@ -492,7 +503,7 @@
         bottom: 0;
         left: 0;
         z-index: 7;
-        max-width: 900px;
+        max-width: 430px;
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -600,6 +611,7 @@
           opacity: 0.56;
         }
       }
+
     </style>
   </head>
   <body>
@@ -619,8 +631,8 @@
           <div class="card global">
             <div class="global-top">
               <div>
-                <span class="hero-label">总资产</span>
-                <input class="hero-value mono" id="totalAssets" type="number" inputmode="decimal" placeholder="0.00" />
+                <span class="hero-label">总市值</span>
+                <input class="hero-value mono" id="totalAssets" type="number" inputmode="decimal" placeholder="0.00" readonly />
                 <p class="sub">最近保存：<span id="updatedAt">--</span></p>
               </div>
               <div class="progress-ring" id="progressRing">
@@ -628,9 +640,10 @@
               </div>
             </div>
             <div class="capital-grid">
-              <div class="capital-item"><label>成本本金</label><input id="costCapital" class="mono" type="number" inputmode="decimal" /></div>
+              <div class="capital-item"><label>本金</label><input id="costCapital" class="mono" type="number" inputmode="decimal" /></div>
+              <div class="capital-item"><label>欠款</label><input id="debtAmount" class="mono" type="number" inputmode="decimal" /></div>
               <div class="capital-item"><label>目标盈利</label><input id="targetProfit" class="mono" type="number" inputmode="decimal" /></div>
-              <div class="capital-item"><label>当前盈利</label><input id="currentProfit" class="mono" type="number" inputmode="decimal" /></div>
+              <div class="capital-item"><label>当前盈利</label><input id="currentProfit" class="mono" type="number" inputmode="decimal" readonly /></div>
               <div class="capital-item"><label>目标达成率</label><strong class="mono" id="progressCopy">0.00%</strong></div>
             </div>
           </div>
@@ -657,15 +670,23 @@
 
     <script>
       const STORAGE_KEY = "postiton_ol_html_state_v1";
-      const globalKeys = ["totalAssets", "costCapital", "targetProfit", "currentProfit"];
+      const globalKeys = ["costCapital", "debtAmount", "targetProfit"];
       const openRows = new Set();
       const openTrades = new Set();
       let lastRiskPulse = false;
       let state = {
-        globalHeader: { totalAssets: "", costCapital: "", targetProfit: "", currentProfit: "" },
+        globalHeader: defaultGlobalHeader(),
         rows: [],
         updatedAt: "--"
       };
+
+      function defaultGlobalHeader() {
+        return { totalAssets: "", costCapital: "", debtAmount: "", targetProfit: "", currentProfit: "" };
+      }
+
+      function normalizeGlobalHeader(globalHeader = {}) {
+        return { ...defaultGlobalHeader(), ...globalHeader };
+      }
 
       function id() {
         return Math.random().toString(36).slice(2, 11);
@@ -690,7 +711,11 @@
           execDayPosition: row.execDayPosition || "",
           execStopAmount: row.execStopAmount || "",
           execStopPrice: row.execStopPrice || "",
-          rrRatio: row.rrRatio || "2"
+          rrRatio: row.rrRatio || "2",
+          addCount: row.addCount || "",
+          addPrice: row.addPrice || "",
+          addStopAmount: row.addStopAmount || "",
+          addHighPrice: row.addHighPrice || ""
         };
       }
 
@@ -721,6 +746,7 @@
         const slimit = n(row.stopLossAmount);
         const explicitStop = n(row.execStopPrice);
         const total = cp === null || pos === null ? null : cp * pos;
+        const marketValue = cost === null || pos === null ? null : cost * pos;
         let equiv = null;
         if (ppos !== null && ppos !== 0 && pos !== null) {
           if (pos >= ppos && total !== null) equiv = total / ppos;
@@ -735,14 +761,15 @@
         const over = ppos !== null && ppos !== 0 && pos !== null && pos / ppos > 1;
         const breach = distance !== null && distance < 2;
         const actualLoss = pnl === null || pnl > 0 ? 0 : Math.abs(pnl);
-        const rr = n(row.rrRatio) || 2;
-        const execStopAmount = n(row.execStopAmount || row.stopLossAmount);
-        const riskPerShare = cp === null || stop === null ? null : cp - stop;
-        const execDayPosition = execStopAmount === null || riskPerShare === null || riskPerShare <= 0 ? null : Math.floor(execStopAmount / riskPerShare);
-        const targetPrice = cp === null || riskPerShare === null || riskPerShare <= 0 ? null : cp + riskPerShare * rr;
-        const locked = execStopAmount !== null && actualLoss > execStopAmount;
+        const addCount = n(row.addCount);
+        const addPrice = n(row.addPrice);
+        const addStopAmount = n(row.addStopAmount);
+        const addHighPrice = n(row.addHighPrice);
+        const addStopPrice = addCount === null || addCount === 0 || addPrice === null || addStopAmount === null ? null : (addCount * addPrice - addStopAmount) / addCount;
+        const pullbackTakeProfitPrice = addHighPrice === null || addPrice === null ? null : (addHighPrice - addPrice) * 0.66 + addPrice;
         return {
           total,
+          marketValue,
           equiv,
           pnl,
           dayPnl,
@@ -753,10 +780,16 @@
           breach,
           over,
           actualLoss,
-          execDayPosition,
-          targetPrice,
-          locked
+          addStopPrice,
+          pullbackTakeProfitPrice
         };
+      }
+
+      function calcTotalAssets() {
+        return state.rows.reduce((sum, rawRow) => {
+          const marketValue = calc(normalizeRow(rawRow)).marketValue;
+          return marketValue === null ? sum : sum + marketValue;
+        }, 0);
       }
 
       function setRowValue(rowId, key, value, shouldRender = false) {
@@ -766,6 +799,7 @@
 
       function finishRowEdit() {
         renderRows();
+        renderGlobal();
       }
 
       function addRow() {
@@ -798,9 +832,17 @@
         openRows.delete(rowId);
         openTrades.delete(rowId);
         renderRows();
+        renderGlobal();
       }
 
       function renderGlobal() {
+        state.globalHeader.totalAssets = calcTotalAssets().toFixed(2);
+        const principal = n(state.globalHeader.costCapital) || 0;
+        const debt = n(state.globalHeader.debtAmount) || 0;
+        state.globalHeader.currentProfit = (n(state.globalHeader.totalAssets) - principal - debt).toFixed(2);
+        const totalAssetsInput = document.getElementById("totalAssets");
+        totalAssetsInput.value = state.globalHeader.totalAssets;
+        document.getElementById("currentProfit").value = state.globalHeader.currentProfit;
         globalKeys.forEach((key) => {
           const input = document.getElementById(key);
           if (document.activeElement !== input) input.value = state.globalHeader[key] || "";
@@ -834,11 +876,12 @@
                   <input value="${escapeHtml(row.symbol)}" placeholder="代码" oninput="setRowValue('${row.id}', 'symbol', this.value)" onblur="finishRowEdit()" />
                   <input value="${escapeHtml(row.name)}" placeholder="名称" oninput="setRowValue('${row.id}', 'name', this.value)" onblur="finishRowEdit()" />
                   <div class="stock-actions">
-                    <button class="pill blue" type="button" onclick="toggleTrade('${row.id}', event)">${tradeOpen ? "收起加仓" : "加仓"}</button>
-                    <button class="pill" type="button" onclick="toggleRow('${row.id}'); event.stopPropagation()">${open ? "收起风控" : "展开风控"}</button>
-                    <button class="pill red" type="button" onclick="deleteRow('${row.id}', event)">删除</button>
+                    <button class="pill blue" type="button" onclick="toggleTrade('${row.id}', event)">${tradeOpen ? "收起" : "加仓"}</button>
+                    <button class="pill" type="button" onclick="toggleRow('${row.id}'); event.stopPropagation()">${open ? "收起" : "风控"}</button>
+                    <button class="pill red" type="button" onclick="deleteRow('${row.id}', event)">删</button>
                   </div>
                 </div>
+                ${dataCell("市值", money(m.marketValue))}
                 ${rowInput(row, "currentPrice", "现价")}
                 ${rowInput(row, "costPrice", "成本")}
                 ${rowInput(row, "plannedPosition", "预计持仓")}
@@ -866,24 +909,24 @@
                 </div>
               </div>
               <div class="trade-detail">
-                <div class="trade-panel ${m.locked ? "locked" : ""}">
+                <div class="trade-panel">
                   <div class="drawer-head">
                     <div>
-                      <p class="drawer-title">以损定量执行区</p>
-                      <p class="sub">输入止损价和止损额，自动反推可买股数</p>
+                      <p class="drawer-title">加仓执行区</p>
+                      <p class="sub">输入加仓参数，自动生成止损价位和盈利回退止盈价</p>
                     </div>
                     <span class="status-chip ${tradeStatus.className}">${tradeStatus.text}</span>
                   </div>
                   <div class="grid">
-                    ${input(row, "execStopPrice", "止损价")}
-                    ${input(row, "execStopAmount", "止损额", row.stopLossAmount || "0.00")}
-                    ${input(row, "rrRatio", "盈亏比 R:R", "2")}
-                    <div class="field"><label>当前价</label><strong class="mono">${money(n(row.currentPrice))}</strong></div>
+                    ${input(row, "addCount", "加仓数")}
+                    ${input(row, "addPrice", "加仓位")}
+                    ${input(row, "addStopAmount", "止损额", row.stopLossAmount || "0.00")}
+                    ${input(row, "addHighPrice", "高点位")}
                   </div>
                   <div class="rr-line mono">
-                    <div class="rr-box"><small>日内仓位</small><strong>${qty(m.execDayPosition)}</strong></div>
-                    <div class="rr-box"><small>目标止盈价</small><strong>${money(m.targetPrice)}</strong></div>
-                    <div class="rr-box"><small>实际亏损</small><strong>${money(m.actualLoss)}</strong></div>
+                    <div class="rr-box"><small>止损价位</small><strong>${money(m.addStopPrice)}</strong></div>
+                    <div class="rr-box"><small>盈利回退止盈价</small><strong>${money(m.pullbackTakeProfitPrice)}</strong></div>
+                    <div class="rr-box"><small>公式</small><strong>回退 66%</strong></div>
                   </div>
                 </div>
               </div>
@@ -894,6 +937,7 @@
             <div class="monitor-table">
               <div class="table-head">
                 <span>股票名称</span>
+                <span>市值</span>
                 <span>现价</span>
                 <span>成本</span>
                 <span>预计持仓</span>
@@ -934,9 +978,9 @@
       }
 
       function tradePanelStatus(row, m) {
-        if (m.locked) return { text: "超额暴露", className: "bad" };
-        if (n(row.execStopPrice) === null || n(row.execStopAmount || row.stopLossAmount) === null || m.execDayPosition === null) return { text: "待输入", className: "" };
-        return { text: "风控通过", className: "ok" };
+        if (n(row.addCount) === 0) return { text: "加仓数无效", className: "bad" };
+        if (m.addStopPrice === null || m.pullbackTakeProfitPrice === null) return { text: "待输入", className: "" };
+        return { text: "已生成", className: "ok" };
       }
 
       function escapeHtml(value) {
@@ -968,7 +1012,7 @@
 
       function resetAll() {
         if (!confirm("确定要清空当前页面数据吗？")) return;
-        state = { globalHeader: { totalAssets: "", costCapital: "", targetProfit: "", currentProfit: "" }, rows: Array.from({ length: 4 }, emptyRow), updatedAt: "--" };
+        state = { globalHeader: defaultGlobalHeader(), rows: Array.from({ length: 4 }, emptyRow), updatedAt: "--" };
         openRows.clear();
         openTrades.clear();
         render();
@@ -987,6 +1031,7 @@
         const file = event.target.files[0];
         if (!file) return;
         state = JSON.parse(await file.text());
+        state.globalHeader = normalizeGlobalHeader(state.globalHeader);
         event.target.value = "";
         render();
       });
@@ -995,8 +1040,10 @@
       if (saved) {
         try {
           state = JSON.parse(saved);
+          state.globalHeader = normalizeGlobalHeader(state.globalHeader);
           state.rows = (state.rows || []).map(normalizeRow);
         } catch {
+          state.globalHeader = defaultGlobalHeader();
           state.rows = Array.from({ length: 4 }, emptyRow);
         }
       } else {
