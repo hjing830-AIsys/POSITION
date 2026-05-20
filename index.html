@@ -234,6 +234,63 @@
         box-shadow: none;
       }
 
+      .position-group {
+        margin-bottom: 10px;
+      }
+
+      .position-add-history-row-wrap {
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.22);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      .position-add-history-row {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(24, 242, 255, 0.045);
+      }
+
+      .position-test-row2-wrap {
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.18);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .position-test-row2 {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(191, 90, 242, 0.06);
+      }
+
+      .test2-tag {
+        background: rgba(191, 90, 242, 0.18);
+        color: var(--purple);
+      }
+
+      .stock-cell-history .test2-sub {
+        display: block;
+        margin-top: 2px;
+        font-size: 6px;
+        line-height: 1.2;
+        text-align: center;
+        opacity: 0.85;
+      }
+
+      .stock-cell-history {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .history-tag {
+        display: inline-block;
+        padding: 2px 5px;
+        border-radius: 999px;
+        background: rgba(24, 242, 255, 0.12);
+        color: var(--cyan);
+        font-size: 7px;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+
       .position-card::before {
         position: absolute;
         top: 8px;
@@ -255,14 +312,15 @@
       .position-main {
         display: grid;
         grid-template-columns:
-          minmax(0, 1.55fr)
+          minmax(0, 1.5fr)
+          minmax(0, 0.78fr)
+          minmax(0, 0.7fr)
+          minmax(0, 0.7fr)
           minmax(0, 0.82fr)
+          minmax(0, 0.76fr)
           minmax(0, 0.72fr)
-          minmax(0, 0.72fr)
-          minmax(0, 0.88fr)
-          minmax(0, 0.82fr)
-          minmax(0, 0.9fr)
-          minmax(0, 0.68fr);
+          minmax(0, 0.76fr)
+          minmax(0, 0.62fr);
         gap: 0;
         align-items: stretch;
         width: 100%;
@@ -292,14 +350,15 @@
       .table-head {
         display: grid;
         grid-template-columns:
-          minmax(0, 1.55fr)
+          minmax(0, 1.5fr)
+          minmax(0, 0.78fr)
+          minmax(0, 0.7fr)
+          minmax(0, 0.7fr)
           minmax(0, 0.82fr)
+          minmax(0, 0.76fr)
           minmax(0, 0.72fr)
-          minmax(0, 0.72fr)
-          minmax(0, 0.88fr)
-          minmax(0, 0.82fr)
-          minmax(0, 0.9fr)
-          minmax(0, 0.68fr);
+          minmax(0, 0.76fr)
+          minmax(0, 0.62fr);
         min-width: 0;
         width: 100%;
         margin: 0;
@@ -336,16 +395,10 @@
         font-size: 7px;
       }
 
-      .stock-cell input:first-child {
+      .stock-cell .stock-code-input {
         font-size: 9px;
         font-weight: 800;
         letter-spacing: -0.02em;
-      }
-
-      .stock-cell input:last-child {
-        color: var(--muted);
-        font-size: 7px;
-        text-transform: uppercase;
       }
 
       .data-cell {
@@ -357,6 +410,15 @@
 
       .data-cell small {
         display: none;
+      }
+
+      .data-cell-named small {
+        display: block;
+        margin-bottom: 2px;
+        color: var(--muted);
+        font-size: 6px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
       }
 
       .data-cell strong,
@@ -445,6 +507,22 @@
         padding: 0 14px 15px;
       }
 
+      .detail .risk-intro {
+        margin-bottom: 12px;
+      }
+
+      .detail .risk-intro h3 {
+        margin: 0 0 6px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .detail .risk-intro .sub {
+        margin: 0;
+        font-size: 11px;
+      }
+
       .open .detail {
         display: block;
       }
@@ -474,6 +552,34 @@
 
       .trade-panel.locked {
         background: rgba(92, 18, 18, 0.7);
+      }
+
+      .trade-panel .merge-row {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .trade-panel .merge-row .pill {
+        min-height: 28px;
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+
+      .detail .confirm-row {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .detail .confirm-row .pill {
+        min-height: 28px;
+        padding: 4px 10px;
+        font-size: 11px;
       }
 
       .metrics h3 {
@@ -562,7 +668,7 @@
 
       .rr-line {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin-top: 12px;
       }
@@ -696,11 +802,26 @@
         return normalizeRow({ id: id() });
       }
 
+      function shareLabel(value) {
+        if (value === null) return "--";
+        const v = Math.round(value * 100) / 100;
+        return Number.isInteger(v) ? String(v) : v.toFixed(2);
+      }
+
+      function normalizeAddHistEntry(h) {
+        return {
+          addPrice: h.addPrice || "",
+          addCount: h.addCount || "",
+          addStopAmount: h.addStopAmount || "",
+          currentPriceAtMerge: h.currentPriceAtMerge || ""
+        };
+      }
+
       function normalizeRow(row) {
         return {
           id: row.id || id(),
-          symbol: row.symbol || "",
-          name: row.name || "",
+          symbol: row.symbol || row.name || "",
+          name: "",
           position: row.position || "",
           plannedPosition: row.plannedPosition || "",
           currentPrice: row.currentPrice || "",
@@ -715,7 +836,7 @@
           addCount: row.addCount || "",
           addPrice: row.addPrice || "",
           addStopAmount: row.addStopAmount || "",
-          addHighPrice: row.addHighPrice || ""
+          addHistory: Array.isArray(row.addHistory) ? row.addHistory.map(normalizeAddHistEntry) : []
         };
       }
 
@@ -764,9 +885,7 @@
         const addCount = n(row.addCount);
         const addPrice = n(row.addPrice);
         const addStopAmount = n(row.addStopAmount);
-        const addHighPrice = n(row.addHighPrice);
         const addStopPrice = addCount === null || addCount === 0 || addPrice === null || addStopAmount === null ? null : (addCount * addPrice - addStopAmount) / addCount;
-        const pullbackTakeProfitPrice = addHighPrice === null || addPrice === null ? null : (addHighPrice - addPrice) * 0.66 + addPrice;
         return {
           total,
           marketValue,
@@ -780,15 +899,89 @@
           breach,
           over,
           actualLoss,
-          addStopPrice,
-          pullbackTakeProfitPrice
+          addStopPrice
         };
+      }
+
+      function calcHistLeg(h) {
+        const entry = normalizeAddHistEntry(h);
+        const ap = n(entry.addPrice);
+        const ac = n(entry.addCount);
+        const asa = n(entry.addStopAmount);
+        const cpSnap = n(entry.currentPriceAtMerge);
+        const marketValue = ap !== null && ac !== null ? ap * ac : null;
+        const addStopPrice =
+          ac === null || ac === 0 || ap === null || asa === null ? null : (ac * ap - asa) / ac;
+        const pnl = cpSnap !== null && ap !== null && ac !== null ? (cpSnap - ap) * ac : null;
+        return {
+          marketValue,
+          addStopPrice,
+          pnl,
+          displayCp: cpSnap,
+          displayCost: ap,
+          planned: ac,
+          position: ac
+        };
+      }
+
+      function calcAddPreviewMarket(row) {
+        const ap = n(row.addPrice);
+        const ac = n(row.addCount);
+        return ap !== null && ac !== null ? ap * ac : null;
+      }
+
+      function calcAddTotals(rawRow) {
+        const row = normalizeRow(rawRow);
+        let totalCount = 0;
+        let totalAmount = 0;
+        let totalStopAmount = 0;
+        let hasCount = false;
+        let hasAmount = false;
+        let hasStop = false;
+
+        function addLeg(price, count, stopAmt) {
+          const ac = n(count);
+          const ap = n(price);
+          const asa = n(stopAmt);
+          if (ac !== null) {
+            totalCount += ac;
+            hasCount = true;
+          }
+          if (ap !== null && ac !== null) {
+            totalAmount += ap * ac;
+            hasAmount = true;
+          }
+          if (asa !== null) {
+            totalStopAmount += asa;
+            hasStop = true;
+          }
+        }
+
+        addLeg(row.addPrice, row.addCount, row.addStopAmount);
+        (row.addHistory || []).forEach((h) => {
+          const e = normalizeAddHistEntry(h);
+          addLeg(e.addPrice, e.addCount, e.addStopAmount);
+        });
+
+        return {
+          totalCount: hasCount ? totalCount : null,
+          totalAmount: hasAmount ? totalAmount : null,
+          totalStopAmount: hasStop ? totalStopAmount : null
+        };
+      }
+
+      function calcRowMarketTotal(rawRow) {
+        const row = normalizeRow(rawRow);
+        const base = calc(row).marketValue;
+        const add = calcAddPreviewMarket(row);
+        if (base === null && add === null) return null;
+        return (base || 0) + (add || 0);
       }
 
       function calcTotalAssets() {
         return state.rows.reduce((sum, rawRow) => {
-          const marketValue = calc(normalizeRow(rawRow)).marketValue;
-          return marketValue === null ? sum : sum + marketValue;
+          const total = calcRowMarketTotal(rawRow);
+          return total === null ? sum : sum + total;
         }, 0);
       }
 
@@ -797,9 +990,122 @@
         if (shouldRender) render();
       }
 
-      function finishRowEdit() {
+      let tabNavigating = false;
+
+      function getTabInputs() {
+        const root = document.querySelector(".app");
+        if (!root) return [];
+        return Array.from(root.querySelectorAll('input:not([readonly]):not([type="file"]):not([hidden])')).filter((el) => {
+          if (el.offsetParent === null) return false;
+          const card = el.closest(".position-card");
+          if (!card) return true;
+          if (el.closest(".detail") && !card.classList.contains("open")) return false;
+          if (el.closest(".trade-detail") && !card.classList.contains("trade")) return false;
+          return true;
+        });
+      }
+
+      function refocusInput(meta) {
+        if (!meta) return;
+        let el = null;
+        if (meta.id) el = document.getElementById(meta.id);
+        else if (meta.rowId && meta.field) {
+          el = document.querySelector(`input[data-row-id="${meta.rowId}"][data-field="${meta.field}"]`);
+        }
+        if (!el) return;
+        el.focus();
+        const pos = Math.min(meta.caret ?? el.value.length, String(el.value).length);
+        try {
+          el.setSelectionRange(pos, pos);
+        } catch (_) {
+          /* number inputs may not support selection in some browsers */
+        }
+      }
+
+      function focusTabRelative(shift) {
+        const inputs = getTabInputs();
+        const current = document.activeElement;
+        const idx = inputs.indexOf(current);
+        if (idx === -1) return;
+        const nextIdx = shift ? idx - 1 : idx + 1;
+        if (nextIdx < 0 || nextIdx >= inputs.length) return;
+        const target = inputs[nextIdx];
+        const meta = {
+          id: target.id || "",
+          rowId: target.dataset.rowId || "",
+          field: target.dataset.field || ""
+        };
+        tabNavigating = true;
         renderRows();
         renderGlobal();
+        tabNavigating = false;
+        refocusInput(meta);
+      }
+
+      function htmlTestRow2Main(rawRow, m, tradeStatus) {
+        const row = normalizeRow(rawRow);
+        const t = calcAddTotals(rawRow);
+        const pendingCount = n(row.addCount);
+        const hasPending = calcAddPreviewMarket(row) !== null || pendingCount !== null || m.addStopPrice !== null;
+        return `
+                <div class="stock-cell stock-cell-history">
+                  <span class="history-tag test2-tag">测试行2</span>
+                  <small class="sub test2-sub">加仓合计</small>
+                </div>
+                ${dataCell("市值", money(t.totalAmount))}
+                ${dataCell("现价", "--")}
+                ${dataCell("成本", money(t.totalStopAmount))}
+                ${dataCell("预计持仓", shareLabel(pendingCount))}
+                ${dataCell("持仓数量", shareLabel(t.totalCount))}
+                ${dataCell("加仓止损", money(m.addStopPrice))}
+                ${dataCell("浮动盈亏", "--")}
+                <div class="data-cell"><span class="status-chip ${hasPending ? tradeStatus.className : "idle"}">${hasPending ? tradeStatus.text : "合计"}</span></div>`;
+      }
+
+      function syncAddPreview(rowId) {
+        const raw = state.rows.find((r) => r.id === rowId);
+        if (!raw) return;
+        const row = normalizeRow(raw);
+        const m = calc(row);
+        const tradeStatus = tradePanelStatus(row, m);
+        const wrap = document.querySelector(`[data-test-row2="${rowId}"]`);
+        if (wrap) {
+          wrap.innerHTML = `<div class="position-main position-test-row2">${htmlTestRow2Main(row, m, tradeStatus)}</div>`;
+        }
+        const panel = document.querySelector(`[data-add-panel="${rowId}"]`);
+        if (panel) {
+          const stopEl = panel.querySelector("[data-add-stop-price]");
+          if (stopEl) stopEl.textContent = money(m.addStopPrice);
+          const chip = panel.querySelector("[data-add-status]");
+          if (chip) {
+            chip.textContent = tradeStatus.text;
+            chip.className = `status-chip ${tradeStatus.className}`;
+          }
+        }
+        const metricStop = document.querySelector(`[data-add-metric-stop="${rowId}"]`);
+        if (metricStop) metricStop.textContent = money(m.addStopPrice);
+        const mainStop = document.querySelector(`[data-main-add-stop="${rowId}"] strong`);
+        if (mainStop) mainStop.textContent = money(m.addStopPrice);
+        const mainMv = document.querySelector(`[data-main-market="${rowId}"] strong`);
+        if (mainMv) mainMv.textContent = money(calcRowMarketTotal(raw));
+        renderGlobal();
+      }
+
+      let finishRowEditTimer = null;
+
+      function finishRowEdit() {
+        if (tabNavigating) return;
+        clearTimeout(finishRowEditTimer);
+        finishRowEditTimer = setTimeout(() => {
+          const active = document.activeElement;
+          if (active && active.closest(".confirm-row, .merge-row, .stock-actions")) return;
+          renderRows();
+          renderGlobal();
+        }, 0);
+      }
+
+      function actionBtn(handler) {
+        return `type="button" class="pill blue action-btn" onmousedown="${handler}; event.preventDefault(); event.stopPropagation()"`;
       }
 
       function addRow() {
@@ -826,13 +1132,123 @@
       function deleteRow(rowId, event) {
         if (event) event.stopPropagation();
         const row = state.rows.find((item) => item.id === rowId);
-        const label = row && (row.name || row.symbol) ? `「${row.name || row.symbol}」` : "这条持仓";
+        const label = row && row.symbol ? `「${row.symbol}」` : "这条持仓";
         if (!confirm(`确定删除${label}吗？`)) return;
         state.rows = state.rows.filter((item) => item.id !== rowId);
         openRows.delete(rowId);
         openTrades.delete(rowId);
         renderRows();
         renderGlobal();
+      }
+
+      function formatPositionStored(value) {
+        if (value === null || Number.isNaN(value)) return "";
+        if (Math.abs(value % 1) < 1e-9) return String(Math.round(value));
+        return value.toFixed(2);
+      }
+
+      const riskFieldKeys = ["currentPrice", "costPrice", "plannedPosition", "position", "dayPnl", "stopLossAmount"];
+
+      function formatRiskStored(key, raw) {
+        const v = n(raw);
+        if (v === null) return "";
+        if (key === "plannedPosition" || key === "position") return formatPositionStored(v);
+        return v.toFixed(2);
+      }
+
+      function confirmRisk(rowId, event) {
+        if (event) event.stopPropagation();
+        const patch = {};
+        document.querySelectorAll(`input[data-row-id="${rowId}"][data-field]`).forEach((el) => {
+          if (!el.closest(".detail")) return;
+          const key = el.dataset.field;
+          if (!riskFieldKeys.includes(key)) return;
+          patch[key] = el.value;
+        });
+        state.rows = state.rows.map((r) => {
+          if (r.id !== rowId) return r;
+          const merged = normalizeRow({ ...r, ...patch });
+          const formatted = {};
+          riskFieldKeys.forEach((key) => {
+            formatted[key] = formatRiskStored(key, merged[key]);
+          });
+          return normalizeRow({ ...merged, ...formatted });
+        });
+        openRows.delete(rowId);
+        render();
+      }
+
+      function flushTradeInputsFromDom(rowId) {
+        const addKeys = ["addPrice", "addCount", "addStopAmount"];
+        const patch = {};
+        document.querySelectorAll(`input[data-row-id="${rowId}"][data-field]`).forEach((el) => {
+          if (!el.closest(".trade-detail")) return;
+          const key = el.dataset.field;
+          if (addKeys.includes(key)) patch[key] = el.value;
+        });
+        if (!Object.keys(patch).length) return;
+        state.rows = state.rows.map((r) => (r.id !== rowId ? r : normalizeRow({ ...r, ...patch })));
+      }
+
+      function mergeAddIntoRisk(rowId, event) {
+        if (event) event.stopPropagation();
+        flushTradeInputsFromDom(rowId);
+        const raw = state.rows.find((r) => r.id === rowId);
+        if (!raw) return;
+        const row = normalizeRow(raw);
+        const m = calc(row);
+        const ac = n(row.addCount);
+        const ap = n(row.addPrice);
+        const asa = n(row.addStopAmount);
+        if (ac === null || ac <= 0) {
+          alert("请填写大于 0 的加仓数");
+          return;
+        }
+        if (ap === null || asa === null) {
+          alert("请填写加仓价格与止损额");
+          return;
+        }
+        if (m.addStopPrice === null) {
+          alert("无法计算加仓止损价位，请检查输入");
+          return;
+        }
+        const oldPos = n(row.position);
+        const oldCost = n(row.costPrice);
+        const oldPp = n(row.plannedPosition);
+        const posBase = Math.max(0, oldPos !== null ? oldPos : 0);
+        const newPos = posBase + ac;
+        let newCost;
+        if (posBase <= 0 || oldCost === null) newCost = ap;
+        else newCost = (oldCost * posBase + ap * ac) / newPos;
+        const nextPlanned = oldPp === null || oldPp === 0 ? newPos : oldPp + ac;
+        const prevHist = Array.isArray(raw.addHistory) ? raw.addHistory.map(normalizeAddHistEntry) : [];
+        prevHist.push(
+          normalizeAddHistEntry({
+            addPrice: ap.toFixed(2),
+            addCount: formatPositionStored(ac),
+            addStopAmount: asa.toFixed(2),
+            currentPriceAtMerge: row.currentPrice || ""
+          })
+        );
+        state.rows = state.rows.map((r) =>
+          r.id !== rowId
+            ? r
+            : normalizeRow({
+                ...r,
+                currentPrice: ap.toFixed(2),
+                costPrice: newCost.toFixed(2),
+                plannedPosition: formatPositionStored(nextPlanned),
+                position: formatPositionStored(newPos),
+                stopLossAmount: asa.toFixed(2),
+                addCount: "",
+                addPrice: "",
+                addStopAmount: "",
+                addHistory: prevHist
+              })
+        );
+        openRows.delete(rowId);
+        openTrades.delete(rowId);
+        render();
       }
 
       function renderGlobal() {
@@ -869,34 +1285,85 @@
           const pnlClass = m.pnl === null ? "" : m.pnl > 0 ? "red" : m.pnl < 0 ? "green" : "";
           const badgeClass = m.breach ? "badge red" : m.over ? "badge amber" : "badge";
           const tradeStatus = tradePanelStatus(row, m);
+          const rowMarketTotal = calcRowMarketTotal(rawRow);
+          const testRow2Html = `
+            <div class="position-test-row2-wrap" data-test-row2="${row.id}">
+              <div class="position-main position-test-row2">
+                ${htmlTestRow2Main(rawRow, m, tradeStatus)}
+              </div>
+            </div>`;
+          const histHtml = (row.addHistory || [])
+            .map((h, idx) => {
+              const hm = calcHistLeg(h);
+              const hp = idx + 1;
+              const hPnlClass = hm.pnl === null ? "" : hm.pnl > 0 ? "red" : hm.pnl < 0 ? "green" : "";
+              return `
+            <div class="position-add-history-row-wrap">
+              <div class="position-main position-add-history-row">
+                <div class="stock-cell stock-cell-history">
+                  <span class="history-tag">加仓${hp}</span>
+                </div>
+                ${dataCell("市值", money(hm.marketValue))}
+                ${dataCell("现价", money(hm.displayCp))}
+                ${dataCell("成本", money(hm.displayCost))}
+                ${dataCell("预计持仓", shareLabel(hm.planned))}
+                ${dataCell("持仓数量", shareLabel(hm.position))}
+                ${dataCell("加仓止损", money(hm.addStopPrice))}
+                ${dataCell("浮动盈亏", money(hm.pnl), hPnlClass)}
+                <div class="data-cell"><span class="badge amber">加仓</span></div>
+              </div>
+            </div>`;
+            })
+            .join("");
           return `
+          <div class="position-group">
             <article class="card position-card ${m.breach ? "risk" : ""} ${open ? "open" : ""} ${tradeOpen ? "trade" : ""}">
               <div class="position-main">
                 <div class="stock-cell">
-                  <input value="${escapeHtml(row.symbol)}" placeholder="代码" oninput="setRowValue('${row.id}', 'symbol', this.value)" onblur="finishRowEdit()" />
-                  <input value="${escapeHtml(row.name)}" placeholder="名称" oninput="setRowValue('${row.id}', 'name', this.value)" onblur="finishRowEdit()" />
+                  <input class="mono stock-code-input tab-field" data-row-id="${row.id}" data-field="symbol" value="${escapeHtml(row.symbol)}" placeholder="代码" oninput="setRowValue('${row.id}', 'symbol', this.value)" onblur="finishRowEdit()" />
                   <div class="stock-actions">
                     <button class="pill blue" type="button" onclick="toggleTrade('${row.id}', event)">${tradeOpen ? "收起" : "加仓"}</button>
                     <button class="pill" type="button" onclick="toggleRow('${row.id}'); event.stopPropagation()">${open ? "收起" : "风控"}</button>
                     <button class="pill red" type="button" onclick="deleteRow('${row.id}', event)">删</button>
                   </div>
                 </div>
-                ${dataCell("市值", money(m.marketValue))}
-                ${rowInput(row, "currentPrice", "现价")}
-                ${rowInput(row, "costPrice", "成本")}
-                ${rowInput(row, "plannedPosition", "预计持仓")}
-                ${rowInput(row, "position", "持仓数量")}
+                <div class="data-cell mono" data-main-market="${row.id}"><small>市值</small><strong>${money(rowMarketTotal)}</strong></div>
+                ${dataCell("现价", money(n(row.currentPrice)))}
+                ${dataCell("成本", money(n(row.costPrice)))}
+                ${dataCell("预计持仓", shareLabel(n(row.plannedPosition)))}
+                ${dataCell("持仓数量", shareLabel(n(row.position)))}
+                <div class="data-cell mono" data-main-add-stop="${row.id}"><small>加仓止损</small><strong>${money(m.addStopPrice)}</strong></div>
                 ${dataCell("浮动盈亏", money(m.pnl), pnlClass)}
                 <div class="data-cell"><span class="${badgeClass}">${m.alert}</span></div>
               </div>
+              ${testRow2Html}
               <div class="detail">
-                <div class="grid">
-                  ${input(row, "position", "持仓数量")}
-                  ${input(row, "plannedPosition", "预仓数量")}
-                  ${input(row, "currentPrice", "现价")}
-                  ${input(row, "costPrice", "成本")}
-                  ${input(row, "dayPnl", "当日盈亏")}
-                  ${input(row, "stopLossAmount", "计划止损额")}
+                <div class="risk-intro">
+                  <h3>风控 · 头寸录入</h3>
+                  <p class="sub">在此填写现价、成本、预计持仓、持仓数量；填完后点<strong>确认</strong>写入主表并收起；亦可在「加仓」中<strong>合并到头寸</strong>。</p>
+                </div>
+                <div class="metrics" style="margin-top: 0">
+                  <h3>头寸（主表数据源）</h3>
+                  <div class="grid">
+                    ${input(row, "currentPrice", "现价")}
+                    ${input(row, "costPrice", "成本")}
+                    ${input(row, "plannedPosition", "预计持仓")}
+                    ${input(row, "position", "持仓数量")}
+                  </div>
+                </div>
+                <div class="metrics">
+                  <h3>止损与当日</h3>
+                  <div class="grid">
+                    ${input(row, "dayPnl", "当日盈亏")}
+                    ${input(row, "stopLossAmount", "计划止损额")}
+                  </div>
+                </div>
+                <div class="metrics">
+                  <h3>加仓测算</h3>
+                  <p class="sub" style="margin:0 0 8px">填写内容会同步到主表下方「测试行2」行，展示加仓合计（总加仓金额、总加仓数、总止损额等）。</p>
+                  <div class="metric-grid mono">
+                    ${metric("加仓止损价（与主表同列）", `<span data-add-metric-stop="${row.id}">${money(m.addStopPrice)}</span>`)}
+                  </div>
                 </div>
                 <div class="metrics">
                   <h3>持仓状态雷达</h3>
@@ -907,41 +1374,49 @@
                     ${metric("离场空间", pct(m.distance), m.breach ? "red" : "")}
                   </div>
                 </div>
+                <div class="confirm-row">
+                  <button ${actionBtn(`confirmRisk('${row.id}', event)`)}>确认</button>
+                  <span class="sub">写入主表并收起风控</span>
+                </div>
               </div>
               <div class="trade-detail">
-                <div class="trade-panel">
+                <div class="trade-panel" data-add-panel="${row.id}">
                   <div class="drawer-head">
                     <div>
-                      <p class="drawer-title">加仓执行区</p>
-                      <p class="sub">输入加仓参数，自动生成止损价位和盈利回退止盈价</p>
+                      <p class="drawer-title">加仓</p>
+                      <p class="sub">填写加仓价格、加仓数、止损额；合并后写入风控头寸与计划止损额；历次合并明细在主表下方展示。</p>
                     </div>
-                    <span class="status-chip ${tradeStatus.className}">${tradeStatus.text}</span>
+                    <span class="status-chip ${tradeStatus.className}" data-add-status="${row.id}">${tradeStatus.text}</span>
                   </div>
                   <div class="grid">
-                    ${input(row, "addCount", "加仓数")}
-                    ${input(row, "addPrice", "加仓位")}
-                    ${input(row, "addStopAmount", "止损额", row.stopLossAmount || "0.00")}
-                    ${input(row, "addHighPrice", "高点位")}
+                    ${input(row, "addPrice", "加仓价格", "0.00", true)}
+                    ${input(row, "addCount", "加仓数", "0.00", true)}
+                    ${input(row, "addStopAmount", "止损额", row.stopLossAmount || "0.00", true)}
                   </div>
                   <div class="rr-line mono">
-                    <div class="rr-box"><small>止损价位</small><strong>${money(m.addStopPrice)}</strong></div>
-                    <div class="rr-box"><small>盈利回退止盈价</small><strong>${money(m.pullbackTakeProfitPrice)}</strong></div>
-                    <div class="rr-box"><small>公式</small><strong>回退 66%</strong></div>
+                    <div class="rr-box"><small>止损价位</small><strong data-add-stop-price="${row.id}">${money(m.addStopPrice)}</strong></div>
+                    <div class="rr-box"><small>计算式</small><strong>(加价×加仓数−止损额)÷加仓数</strong></div>
+                  </div>
+                  <div class="merge-row">
+                    <button ${actionBtn(`mergeAddIntoRisk('${row.id}', event)`)}>合并到头寸</button>
+                    <span class="sub">加权成本 · 现价=加仓价 · 持仓+=加仓数 · 预计+=加仓数 · 止损额并入</span>
                   </div>
                 </div>
               </div>
-            </article>`;
+            </article>${histHtml}
+          </div>`;
         }).join("");
         box.innerHTML = `
           <div class="monitor-scroll">
             <div class="monitor-table">
               <div class="table-head">
-                <span>股票名称</span>
+                <span>代码</span>
                 <span>市值</span>
                 <span>现价</span>
                 <span>成本</span>
                 <span>预计持仓</span>
                 <span>持仓数量</span>
+                <span>加仓止损</span>
                 <span>浮动盈亏</span>
                 <span>状态</span>
               </div>
@@ -951,8 +1426,11 @@
         updateRiskPulse(hasRisk);
       }
 
-      function input(row, key, label, placeholder = "0.00") {
-        return `<div class="field"><label>${label}</label><input class="mono" type="number" inputmode="decimal" value="${escapeHtml(row[key])}" placeholder="${escapeHtml(placeholder)}" oninput="setRowValue('${row.id}', '${key}', this.value)" onblur="finishRowEdit()" /></div>`;
+      function input(row, key, label, placeholder = "0.00", syncAdd = false) {
+        const oninput = syncAdd
+          ? `setRowValue('${row.id}', '${key}', this.value); syncAddPreview('${row.id}');`
+          : `setRowValue('${row.id}', '${key}', this.value)`;
+        return `<div class="field"><label>${label}</label><input class="mono tab-field" data-row-id="${row.id}" data-field="${key}" type="number" inputmode="decimal" value="${escapeHtml(row[key])}" placeholder="${escapeHtml(placeholder)}" oninput="${oninput}" onblur="finishRowEdit()" /></div>`;
       }
 
       function summary(label, value, className = "") {
@@ -963,8 +1441,8 @@
         return `<div class="data-cell mono"><small>${label}</small><strong class="${className}">${value}</strong></div>`;
       }
 
-      function rowInput(row, key, label, placeholder = "0.00") {
-        return `<div class="data-cell"><small>${label}</small><input class="mono" type="number" inputmode="decimal" value="${escapeHtml(row[key])}" placeholder="${escapeHtml(placeholder)}" oninput="setRowValue('${row.id}', '${key}', this.value)" onblur="finishRowEdit()" /></div>`;
+      function dataCellNamed(label, value, className = "") {
+        return `<div class="data-cell mono data-cell-named"><small>${label}</small><strong class="${className}">${value}</strong></div>`;
       }
 
       function metric(label, value, className = "") {
@@ -978,8 +1456,9 @@
       }
 
       function tradePanelStatus(row, m) {
-        if (n(row.addCount) === 0) return { text: "加仓数无效", className: "bad" };
-        if (m.addStopPrice === null || m.pullbackTakeProfitPrice === null) return { text: "待输入", className: "" };
+        const ac = n(row.addCount);
+        if (ac === 0 || ac < 0) return { text: "加仓数无效", className: "bad" };
+        if (m.addStopPrice === null) return { text: "待输入", className: "" };
         return { text: "已生成", className: "ok" };
       }
 
@@ -1025,6 +1504,15 @@
             renderGlobal();
           }
         });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Tab") return;
+        const active = document.activeElement;
+        if (!active || active.tagName !== "INPUT") return;
+        if (!getTabInputs().includes(active)) return;
+        event.preventDefault();
+        focusTabRelative(event.shiftKey);
       });
 
       document.getElementById("importFile").addEventListener("change", async (event) => {
