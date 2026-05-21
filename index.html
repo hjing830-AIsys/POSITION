@@ -7,18 +7,19 @@
     <style>
       :root {
         color-scheme: dark;
-        --root: #07070b;
-        --surface: rgba(255, 255, 255, 0.055);
-        --surface-strong: rgba(255, 255, 255, 0.09);
-        --text: #f7f7fb;
-        --muted: #8e8e99;
-        --dim: #575763;
-        --blue: #0a84ff;
+        --root: #1c1c1e;
+        --surface: #28282b;
+        --surface-strong: #2e2e32;
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #f0f1f4;
+        --muted: #8a8a8f;
+        --dim: #5a5a60;
+        --blue: #4a90e2;
         --cyan: #18f2ff;
-        --purple: #bf5af2;
-        --red: #ff453a;
-        --green: #32d74b;
-        --amber: #ff9f0a;
+        --purple: #b78bff;
+        --red: #f04b4b;
+        --green: #2ec866;
+        --amber: #f4c843;
       }
 
       * {
@@ -61,166 +62,168 @@
         max-width: 430px;
         margin: 0 auto;
         padding-bottom: calc(108px + env(safe-area-inset-bottom));
-        background:
-          linear-gradient(#06050a 0 118px, transparent 118px),
-          radial-gradient(circle at 84% 18%, rgba(191, 90, 242, 0.34), transparent 34%),
-          radial-gradient(circle at 4% 25%, rgba(24, 242, 255, 0.18), transparent 34%),
-          var(--root);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+        background: var(--root);
       }
 
       header {
         position: sticky;
         top: 0;
         z-index: 6;
-        padding: calc(25px + env(safe-area-inset-top)) 18px 18px;
-        background: #06050a;
+        padding: calc(10px + env(safe-area-inset-top)) 14px 6px;
+        background: var(--root);
       }
 
       h1 {
         margin: 0;
-        font-size: 30px;
-        font-weight: 900;
-        letter-spacing: -0.05em;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
 
       .sub {
-        margin: 12px 0 0;
+        margin: 4px 0 0;
         color: var(--muted);
-        font-size: 15px;
+        font-size: 11px;
         font-weight: 400;
       }
 
       .alert-strip {
         display: none;
-        margin-top: 12px;
-        border-radius: 18px;
-        padding: 10px 12px;
-        background: rgba(255, 69, 58, 0.2);
-        color: #ffd6d3;
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 9px 12px;
+        background: rgba(74, 144, 226, 0.14);
+        color: #c9dcf2;
         font-size: 12px;
-        font-weight: 800;
-        box-shadow: 0 0 28px rgba(255, 69, 58, 0.18);
+        font-weight: 600;
       }
 
       .alert-strip.on {
         display: block;
-        animation: pulseRed 1.05s ease-in-out infinite;
       }
 
       main {
-        padding: 42px 8px 0;
+        padding: 12px 14px 0;
       }
 
       .section-head {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 0 4px 12px;
+        margin: 0 0 10px;
         color: var(--muted);
-        font-size: 17px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
       }
 
       .card {
         overflow: hidden;
-        margin-bottom: 12px;
-        border-radius: 30px;
+        margin-bottom: 10px;
+        border-radius: 14px;
         background: var(--surface);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
       }
 
       .global {
-        padding: 21px 18px 18px;
-        background: rgba(255, 255, 255, 0.058);
+        padding: 14px;
+        background: transparent;
+        margin-bottom: 4px;
       }
 
       .global-top {
         display: flex;
-        gap: 16px;
+        gap: 10px;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
       }
 
       .hero-label {
         color: var(--muted);
-        font-size: 15px;
-        font-weight: 300;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.02em;
       }
 
       .hero-value {
         display: block;
-        margin-top: 13px;
-        font-size: 44px;
+        margin-top: 2px;
+        font-size: 30px;
         font-weight: 900;
-        letter-spacing: -0.06em;
+        letter-spacing: -0.03em;
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       }
 
       .progress-ring {
         --progress: 0deg;
         position: relative;
         display: grid;
-        width: 94px;
-        height: 94px;
+        width: 46px;
+        height: 46px;
         flex: 0 0 auto;
         place-items: center;
         border-radius: 50%;
-        background: conic-gradient(from -90deg, var(--purple) 0deg, var(--cyan) var(--progress), rgba(255, 255, 255, 0.11) var(--progress), rgba(255, 255, 255, 0.11) 360deg);
+        background: conic-gradient(from -90deg, var(--purple) 0deg, var(--blue) var(--progress), rgba(255, 255, 255, 0.08) var(--progress), rgba(255, 255, 255, 0.08) 360deg);
       }
 
       .progress-ring::after {
         position: absolute;
-        inset: 8px;
+        inset: 4px;
         border-radius: inherit;
-        background: #101016;
+        background: var(--root);
         content: "";
       }
 
       .progress-ring strong {
         position: relative;
         z-index: 1;
-        font-size: 17px;
-        font-weight: 900;
+        font-size: 10px;
+        font-weight: 800;
       }
 
       .capital-grid,
       .grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+        gap: 6px;
       }
 
       .capital-grid {
-        margin-top: 24px;
+        margin-top: 12px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+        padding: 10px;
+        border-radius: 12px;
+        background: var(--surface);
       }
 
       .capital-item,
       .field {
-        min-height: 66px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.045);
-        padding: 14px 13px;
+        min-height: 0;
+        border-radius: 8px;
+        background: transparent;
+        padding: 4px 4px;
       }
 
       .capital-item label,
       .field label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 2px;
         color: var(--muted);
-        font-size: 15px;
-        font-weight: 300;
+        font-size: 10px;
+        font-weight: 400;
       }
 
-      .capital-item input {
-        font-size: 22px;
-        font-weight: 850;
-        letter-spacing: -0.03em;
+      .capital-item input,
+      .capital-item strong {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       }
 
       .field:focus-within,
       .capital-item:focus-within {
-        background: rgba(10, 132, 255, 0.14);
+        background: rgba(74, 144, 226, 0.08);
       }
 
       .position-card {
@@ -399,6 +402,16 @@
         font-size: 9px;
         font-weight: 800;
         letter-spacing: -0.02em;
+      }
+
+      .pill.quote {
+        color: var(--purple);
+        background: rgba(191, 90, 242, 0.15);
+      }
+
+      .pill.quote.loading {
+        opacity: 0.6;
+        pointer-events: none;
       }
 
       .data-cell {
@@ -718,47 +731,578 @@
         }
       }
 
+      /* 第二部分 POSITION MONITOR：表格内显示倍数 (1.05 × 1.2 = 1.26) */
+      .section-monitor {
+        --fs: 1.2;
+        --fs-table: 1.26;
+        font-size: calc(1rem * var(--fs));
+      }
+
+      .section-monitor .section-head {
+        font-size: calc(17px * var(--fs));
+      }
+
+      .section-monitor .link {
+        font-size: calc(14px * var(--fs));
+      }
+
+      .section-monitor .table-head {
+        font-size: calc(8px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .stock-actions .pill {
+        font-size: calc(7px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .stock-cell .stock-code-input {
+        font-size: calc(9px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .data-cell-named small {
+        font-size: calc(6px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .data-cell strong,
+      .section-monitor .data-cell input {
+        font-size: calc(7px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .badge {
+        font-size: calc(7px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .history-tag {
+        font-size: calc(7px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .test2-sub {
+        font-size: calc(6px * var(--fs) * var(--fs-table));
+      }
+
+      .section-monitor .pill {
+        font-size: calc(10px * var(--fs));
+      }
+
+      .section-monitor .field {
+        min-height: 38px;
+        padding: 5px 8px;
+        border-radius: 12px;
+      }
+
+      .section-monitor .field label {
+        margin-bottom: 2px;
+        font-size: calc(10px * var(--fs));
+      }
+
+      .section-monitor .field input {
+        font-size: calc(13px * var(--fs));
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .section-monitor .metrics {
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 16px;
+      }
+
+      .section-monitor .trade-panel {
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 16px;
+      }
+
+      .section-monitor .grid {
+        gap: 8px;
+      }
+
+      .section-monitor .metric-grid {
+        gap: 8px 10px;
+      }
+
+      .section-monitor .detail,
+      .section-monitor .trade-detail {
+        padding: 0 10px 10px;
+      }
+
+      .section-monitor .detail .risk-intro {
+        margin-bottom: 8px;
+      }
+
+      .section-monitor .detail .risk-intro h3 {
+        margin: 0 0 4px;
+        font-size: calc(13px * var(--fs));
+      }
+
+      .section-monitor .metrics h3 {
+        margin: 0 0 6px;
+      }
+
+      .section-monitor .detail .confirm-row,
+      .section-monitor .trade-panel .merge-row {
+        margin-top: 8px;
+      }
+
+      .section-monitor .rr-line {
+        margin-top: 8px;
+        gap: 8px;
+      }
+
+      .section-monitor .rr-box {
+        padding: 8px;
+        border-radius: 12px;
+      }
+
+      .section-monitor .detail .risk-intro .sub,
+      .section-monitor .metrics .sub,
+      .section-monitor .trade-panel .sub,
+      .section-monitor .merge-row .sub,
+      .section-monitor .confirm-row .sub {
+        font-size: calc(11px * var(--fs));
+      }
+
+      .section-monitor .trade-panel .merge-row .pill,
+      .section-monitor .detail .confirm-row .pill {
+        font-size: calc(11px * var(--fs));
+      }
+
+      .section-monitor .metrics h3 {
+        font-size: calc(11px * var(--fs));
+      }
+
+      .section-monitor .metric-grid {
+        font-size: calc(13px * var(--fs));
+      }
+
+      .section-monitor .summary small,
+      .section-monitor .metric span:first-child {
+        font-size: calc(10px * var(--fs));
+      }
+
+      .section-monitor .summary strong {
+        font-size: calc(14px * var(--fs));
+      }
+
+      .section-monitor .drawer-title {
+        font-size: calc(18px * var(--fs));
+      }
+
+      .section-monitor .status-chip {
+        font-size: calc(12px * var(--fs));
+      }
+
+      .section-monitor .rr-box small {
+        font-size: calc(10px * var(--fs));
+      }
+
+      .section-monitor .rr-box strong {
+        font-size: calc(16px * var(--fs));
+      }
+
+      /* ====== 券商风格主题（broker）====== */
+      .broker {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      .broker .market-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 4px 0 6px;
+      }
+
+      .broker .market-head-left {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .broker .market-flag {
+        font-size: 13px;
+      }
+
+      .broker .market-name {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--text);
+      }
+
+      .broker .market-value {
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .broker .market-head .link {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(74, 144, 226, 0.1);
+      }
+
+      .broker .market-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px 10px;
+        padding: 4px 2px 10px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .broker .market-stats > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .broker .market-stats label {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .broker .market-stats strong {
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .broker .pos-head {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+        padding: 10px 2px 8px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .broker .pos-head .num {
+        text-align: center;
+      }
+
+      .broker .pos-head > span:first-child {
+        text-align: left;
+      }
+
+      .broker .pos-head small {
+        color: var(--dim);
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .broker .pos-block {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+
+      .broker .pos-block::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 10px;
+        bottom: 10px;
+        width: 3px;
+        border-radius: 999px;
+        background: var(--green);
+        opacity: 0.6;
+      }
+
+      .broker .pos-block.over::before {
+        background: var(--amber);
+        opacity: 0.9;
+      }
+
+      .broker .pos-block.risk::before {
+        background: var(--red);
+        opacity: 1;
+        animation: pulseRed 0.9s ease-in-out infinite;
+      }
+
+      .broker .pos-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+        padding: 2px 2px;
+        align-items: center;
+      }
+
+      .broker .pos-cell {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        align-items: center;
+        text-align: center;
+      }
+
+      .broker .pos-row > .pos-cell:first-child,
+      .broker .pos-extra > .pos-cell:first-child {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .broker .pos-cell.num {
+        align-items: center;
+        text-align: center;
+      }
+
+      .broker .pos-cell strong {
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+      }
+
+      .broker .pos-cell small {
+        margin-top: 1px;
+        color: var(--muted);
+        font-size: 11px;
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+      }
+
+      .broker .pos-cell .code-input {
+        width: 100%;
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--text);
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 0;
+        text-transform: uppercase;
+      }
+
+      .broker .pos-cell .code-name {
+        margin-top: 1px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .broker .pos-cell .red { color: var(--red); }
+      .broker .pos-cell .green { color: var(--green); }
+      .broker .pos-cell .amber { color: var(--amber); }
+
+      .broker .pos-actions {
+        display: flex;
+        gap: 6px;
+        padding: 6px 0 2px;
+      }
+
+      .broker .action-chip {
+        flex: 1;
+        border: 0;
+        border-radius: 8px;
+        padding: 8px 0;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text);
+        background: var(--surface);
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .broker .action-chip.quote { color: var(--purple); }
+      .broker .action-chip.primary { color: var(--blue); }
+      .broker .action-chip.warn { color: var(--amber); }
+      .broker .action-chip.danger { color: var(--red); }
+      .broker .action-chip.loading { opacity: 0.55; pointer-events: none; }
+
+      .broker .pos-extra {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+        padding: 8px 2px;
+        background: rgba(255, 255, 255, 0.018);
+        border-radius: 8px;
+        margin-top: 6px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .broker .pos-extra .tag {
+        display: inline-block;
+        align-self: flex-start;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+
+      .broker .pos-extra.test2 .tag {
+        background: rgba(183, 139, 255, 0.15);
+        color: var(--purple);
+      }
+
+      .broker .pos-extra.hist .tag {
+        background: rgba(74, 144, 226, 0.15);
+        color: var(--blue);
+      }
+
+      .broker .status-chip-mini {
+        display: inline-block;
+        margin-top: 4px;
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .broker .status-chip-mini.normal { background: rgba(46, 200, 102, 0.14); color: var(--green); }
+      .broker .status-chip-mini.over   { background: rgba(244, 200, 67, 0.14); color: var(--amber); }
+      .broker .status-chip-mini.risk   { background: rgba(240, 75, 75, 0.16); color: #ffadad; }
+
+      /* 让风控/加仓展开区在新主题下也好看一些 */
+      .broker .position-card {
+        padding-left: 0;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        margin-bottom: 0;
+        overflow: visible;
+      }
+
+      .broker .position-card::before {
+        display: none;
+      }
+
+      .broker .pos-row .code-input {
+        text-transform: uppercase;
+      }
+
+      .broker .position-card .detail,
+      .broker .position-card .trade-detail {
+        padding: 0 0 10px;
+      }
+
+      .broker .position-card .metrics,
+      .broker .position-card .trade-panel {
+        background: var(--surface);
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .broker .position-card .metrics h3,
+      .broker .position-card .trade-panel .drawer-title {
+        margin: 0 0 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .broker .position-card .field {
+        min-height: 38px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 5px 8px;
+        border-radius: 8px;
+      }
+
+      .broker .position-card .field label {
+        font-size: 10px;
+      }
+
+      .broker .position-card .field input {
+        font-size: 13px;
+        font-weight: 800;
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+
+      .broker .position-card .rr-box {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .broker .position-card .rr-box small {
+        font-size: 10px;
+      }
+
+      .broker .position-card .rr-box strong {
+        font-size: 14px;
+      }
+
+      /* 底部操作栏：贴近底部 tab bar 视觉 */
+      .broker-bottom {
+        background: rgba(10, 12, 16, 0.92);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid var(--line);
+      }
+
+      .broker-bottom .action {
+        border-radius: 10px;
+        background: var(--surface);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
     </style>
   </head>
   <body>
-    <div class="app">
+    <div class="app broker">
       <header>
         <h1>POSTITON OL</h1>
-        <p class="sub">交易员个人操作分析驾驶舱 · HTML 主页版</p>
+        <p class="sub">交易员个人操作分析驾驶舱</p>
         <div class="alert-strip" id="topAlert">风险脉冲：有持仓逼近或跌破止损线，请立即处理。</div>
       </header>
 
       <main>
         <section>
-          <div class="section-head">
-            <span>GLOBAL HEADER</span>
-            <strong class="green">资金安全视图</strong>
-          </div>
-          <div class="card global">
+          <div class="global">
             <div class="global-top">
               <div>
-                <span class="hero-label">总市值</span>
-                <input class="hero-value mono" id="totalAssets" type="number" inputmode="decimal" placeholder="0.00" readonly />
+                <span class="hero-label">总市值 · USD</span>
+                <strong class="hero-value" id="totalAssets">0.0</strong>
                 <p class="sub">最近保存：<span id="updatedAt">--</span></p>
               </div>
               <div class="progress-ring" id="progressRing">
-                <strong id="progress">0.00%</strong>
+                <strong id="progress">0.0%</strong>
               </div>
             </div>
             <div class="capital-grid">
               <div class="capital-item"><label>本金</label><input id="costCapital" class="mono" type="number" inputmode="decimal" /></div>
               <div class="capital-item"><label>欠款</label><input id="debtAmount" class="mono" type="number" inputmode="decimal" /></div>
               <div class="capital-item"><label>目标盈利</label><input id="targetProfit" class="mono" type="number" inputmode="decimal" /></div>
-              <div class="capital-item"><label>当前盈利</label><input id="currentProfit" class="mono" type="number" inputmode="decimal" readonly /></div>
-              <div class="capital-item"><label>目标达成率</label><strong class="mono" id="progressCopy">0.00%</strong></div>
+              <div class="capital-item"><label>当前盈利</label><strong class="mono" id="currentProfit">0.0</strong></div>
+              <div class="capital-item"><label>目标达成率</label><strong class="mono" id="progressCopy">0.0%</strong></div>
             </div>
           </div>
         </section>
 
-        <section>
-          <div class="section-head">
-            <span>POSITION MONITOR</span>
+        <section class="section-monitor">
+          <div class="market-head">
+            <div class="market-head-left">
+              <span class="market-flag">🇺🇸</span>
+              <strong class="market-name">美股</strong>
+              <strong class="market-value mono" id="marketValueTotal">0.0</strong>
+            </div>
             <button class="link" onclick="addRow()">+ 新交易</button>
+          </div>
+          <div class="market-stats">
+            <div><label>持仓市值</label><strong class="mono" id="statMarket">0.0</strong></div>
+            <div><label>浮动盈亏</label><strong class="mono" id="statPnl">0.0</strong></div>
+            <div><label>当日盈亏</label><strong class="mono" id="statDayPnl">0.0</strong></div>
+          </div>
+          <div class="pos-head">
+            <span>名称/代码</span>
+            <span class="num">现价<small> / 成本</small></span>
+            <span class="num">市值<small> / 数量</small></span>
+            <span class="num">盈亏<small> / 加仓止损</small></span>
           </div>
           <div id="rows"></div>
         </section>
@@ -766,7 +1310,7 @@
 
       <input id="importFile" type="file" accept="application/json" hidden />
 
-      <nav class="bottom">
+      <nav class="bottom broker-bottom">
         <button class="action" onclick="saveLocal()">保存</button>
         <button class="action" onclick="exportJson()">导出</button>
         <button class="action" onclick="document.getElementById('importFile').click()">导入</button>
@@ -802,10 +1346,14 @@
         return normalizeRow({ id: id() });
       }
 
+      const FMT1 = new Intl.NumberFormat("en-US", {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+      });
+
       function shareLabel(value) {
         if (value === null) return "--";
-        const v = Math.round(value * 100) / 100;
-        return Number.isInteger(v) ? String(v) : v.toFixed(2);
+        return FMT1.format(value);
       }
 
       function normalizeAddHistEntry(h) {
@@ -848,7 +1396,13 @@
       }
 
       function money(value) {
-        return value === null ? "--" : value.toFixed(2);
+        return value === null ? "--" : FMT1.format(value);
+      }
+
+      function signed(value) {
+        if (value === null) return "--";
+        const sign = value > 0 ? "+" : "";
+        return sign + FMT1.format(value);
       }
 
       function qty(value) {
@@ -990,6 +1544,54 @@
         if (shouldRender) render();
       }
 
+      async function fetchQuote(rowId, event) {
+        if (event) event.stopPropagation();
+        const row = state.rows.find((r) => r.id === rowId);
+        if (!row) return;
+        const code = (row.symbol || "").trim();
+        if (!code) {
+          alert("请先填写股票代码（如 AAPL）");
+          return;
+        }
+        const btn = document.querySelector(`[data-quote-btn="${rowId}"]`);
+        const originalText = btn ? btn.textContent : "";
+        if (btn) {
+          btn.classList.add("loading");
+          btn.textContent = "获取中…";
+        }
+        try {
+          const resp = await fetch(`/api/quote?code=${encodeURIComponent(code)}`, {
+            cache: "no-store"
+          });
+          const data = await resp.json();
+          if (!resp.ok || typeof data.price !== "number") {
+            throw new Error(data.error || `HTTP ${resp.status}`);
+          }
+          const price = data.price.toFixed(2);
+          state.rows = state.rows.map((r) =>
+            r.id !== rowId ? r : normalizeRow({ ...r, currentPrice: price })
+          );
+          const t = data.time ? new Date(data.time) : new Date();
+          state.updatedAt = `${t.toLocaleTimeString()} · ${data.source || "src"}`;
+          render();
+          if (typeof data.changePct === "number") {
+            const sign = data.changePct >= 0 ? "+" : "";
+            const sym = (data.symbol || code).toUpperCase();
+            console.info(
+              `${sym} $${price} (${sign}${data.changePct.toFixed(2)}%) via ${data.source}`
+            );
+          }
+        } catch (e) {
+          alert(`获取「${code}」失败：${e.message || e}`);
+        } finally {
+          const btnNow = document.querySelector(`[data-quote-btn="${rowId}"]`);
+          if (btnNow) {
+            btnNow.classList.remove("loading");
+            btnNow.textContent = originalText || "刷新价";
+          }
+        }
+      }
+
       let tabNavigating = false;
 
       function getTabInputs() {
@@ -1046,20 +1648,23 @@
         const row = normalizeRow(rawRow);
         const t = calcAddTotals(rawRow);
         const pendingCount = n(row.addCount);
-        const hasPending = calcAddPreviewMarket(row) !== null || pendingCount !== null || m.addStopPrice !== null;
         return `
-                <div class="stock-cell stock-cell-history">
-                  <span class="history-tag test2-tag">测试行2</span>
-                  <small class="sub test2-sub">加仓合计</small>
+                <div class="pos-cell">
+                  <span class="tag">测试行2</span>
+                  <small style="margin-top:4px">加仓合计</small>
                 </div>
-                ${dataCell("市值", money(t.totalAmount))}
-                ${dataCell("现价", "--")}
-                ${dataCell("成本", money(t.totalStopAmount))}
-                ${dataCell("预计持仓", shareLabel(pendingCount))}
-                ${dataCell("持仓数量", shareLabel(t.totalCount))}
-                ${dataCell("加仓止损", money(m.addStopPrice))}
-                ${dataCell("浮动盈亏", "--")}
-                <div class="data-cell"><span class="status-chip ${hasPending ? tradeStatus.className : "idle"}">${hasPending ? tradeStatus.text : "合计"}</span></div>`;
+                <div class="pos-cell num">
+                  <strong>${money(n(row.addPrice))}</strong>
+                  <small>当前: ${shareLabel(pendingCount)}</small>
+                </div>
+                <div class="pos-cell num">
+                  <strong>${money(t.totalAmount)}</strong>
+                  <small>${shareLabel(t.totalCount)}</small>
+                </div>
+                <div class="pos-cell num">
+                  <strong>${money(m.addStopPrice)}</strong>
+                  <small>${money(t.totalStopAmount)}</small>
+                </div>`;
       }
 
       function syncAddPreview(rowId) {
@@ -1070,7 +1675,7 @@
         const tradeStatus = tradePanelStatus(row, m);
         const wrap = document.querySelector(`[data-test-row2="${rowId}"]`);
         if (wrap) {
-          wrap.innerHTML = `<div class="position-main position-test-row2">${htmlTestRow2Main(row, m, tradeStatus)}</div>`;
+          wrap.innerHTML = htmlTestRow2Main(row, m, tradeStatus);
         }
         const panel = document.querySelector(`[data-add-panel="${rowId}"]`);
         if (panel) {
@@ -1082,8 +1687,6 @@
             chip.className = `status-chip ${tradeStatus.className}`;
           }
         }
-        const metricStop = document.querySelector(`[data-add-metric-stop="${rowId}"]`);
-        if (metricStop) metricStop.textContent = money(m.addStopPrice);
         const mainStop = document.querySelector(`[data-main-add-stop="${rowId}"] strong`);
         if (mainStop) mainStop.textContent = money(m.addStopPrice);
         const mainMv = document.querySelector(`[data-main-market="${rowId}"] strong`);
@@ -1251,26 +1854,61 @@
         render();
       }
 
+      function calcTotals() {
+        let market = 0;
+        let pnl = 0;
+        let dayPnl = 0;
+        state.rows.forEach((rawRow) => {
+          const row = normalizeRow(rawRow);
+          const m = calc(row);
+          const mvTotal = calcRowMarketTotal(rawRow);
+          if (mvTotal !== null) market += mvTotal;
+          if (m.pnl !== null) pnl += m.pnl;
+          if (m.dayPnl !== null) dayPnl += m.dayPnl;
+        });
+        return { market, pnl, dayPnl };
+      }
+
+      function pnlClassOf(v) {
+        return v === null || v === 0 ? "" : v > 0 ? "red" : "green";
+      }
+
       function renderGlobal() {
-        state.globalHeader.totalAssets = calcTotalAssets().toFixed(2);
+        const total = calcTotalAssets();
+        state.globalHeader.totalAssets = total.toFixed(1);
         const principal = n(state.globalHeader.costCapital) || 0;
         const debt = n(state.globalHeader.debtAmount) || 0;
-        state.globalHeader.currentProfit = (n(state.globalHeader.totalAssets) - principal - debt).toFixed(2);
-        const totalAssetsInput = document.getElementById("totalAssets");
-        totalAssetsInput.value = state.globalHeader.totalAssets;
-        document.getElementById("currentProfit").value = state.globalHeader.currentProfit;
+        const currentProfit = total - principal - debt;
+        state.globalHeader.currentProfit = currentProfit.toFixed(1);
+        document.getElementById("totalAssets").textContent = FMT1.format(total);
+        document.getElementById("currentProfit").textContent = FMT1.format(currentProfit);
         globalKeys.forEach((key) => {
           const input = document.getElementById(key);
           if (document.activeElement !== input) input.value = state.globalHeader[key] || "";
         });
         const target = n(state.globalHeader.targetProfit);
-        const current = n(state.globalHeader.currentProfit);
-        const rate = !target || current === null ? 0 : (current / target) * 100;
-        const progress = rate.toFixed(2) + "%";
+        const rate = !target ? 0 : (currentProfit / target) * 100;
+        const progress = rate.toFixed(1) + "%";
         document.getElementById("progress").textContent = progress;
         document.getElementById("progressCopy").textContent = progress;
         document.getElementById("progressRing").style.setProperty("--progress", Math.max(0, Math.min(rate, 100)) * 3.6 + "deg");
         document.getElementById("updatedAt").textContent = state.updatedAt || "--";
+
+        const totals = calcTotals();
+        const marketEl = document.getElementById("marketValueTotal");
+        if (marketEl) marketEl.textContent = FMT1.format(totals.market);
+        const statMarket = document.getElementById("statMarket");
+        if (statMarket) statMarket.textContent = FMT1.format(totals.market);
+        const statPnl = document.getElementById("statPnl");
+        if (statPnl) {
+          statPnl.textContent = signed(totals.pnl);
+          statPnl.className = `mono ${pnlClassOf(totals.pnl)}`;
+        }
+        const statDay = document.getElementById("statDayPnl");
+        if (statDay) {
+          statDay.textContent = signed(totals.dayPnl);
+          statDay.className = `mono ${pnlClassOf(totals.dayPnl)}`;
+        }
       }
 
       function renderRows() {
@@ -1282,65 +1920,71 @@
           if (m.breach) hasRisk = true;
           const open = openRows.has(row.id);
           const tradeOpen = openTrades.has(row.id);
-          const pnlClass = m.pnl === null ? "" : m.pnl > 0 ? "red" : m.pnl < 0 ? "green" : "";
-          const badgeClass = m.breach ? "badge red" : m.over ? "badge amber" : "badge";
+          const pnlClass = pnlClassOf(m.pnl);
+          const statusClass = m.breach ? "risk" : m.over ? "over" : "normal";
           const tradeStatus = tradePanelStatus(row, m);
           const rowMarketTotal = calcRowMarketTotal(rawRow);
+          const blockClass = m.breach ? "risk" : m.over ? "over" : "";
           const testRow2Html = `
-            <div class="position-test-row2-wrap" data-test-row2="${row.id}">
-              <div class="position-main position-test-row2">
+            <div class="pos-extra test2" data-test-row2="${row.id}">
                 ${htmlTestRow2Main(rawRow, m, tradeStatus)}
-              </div>
             </div>`;
           const histHtml = (row.addHistory || [])
             .map((h, idx) => {
               const hm = calcHistLeg(h);
               const hp = idx + 1;
-              const hPnlClass = hm.pnl === null ? "" : hm.pnl > 0 ? "red" : hm.pnl < 0 ? "green" : "";
+              const hPnlClass = pnlClassOf(hm.pnl);
               return `
-            <div class="position-add-history-row-wrap">
-              <div class="position-main position-add-history-row">
-                <div class="stock-cell stock-cell-history">
-                  <span class="history-tag">加仓${hp}</span>
-                </div>
-                ${dataCell("市值", money(hm.marketValue))}
-                ${dataCell("现价", money(hm.displayCp))}
-                ${dataCell("成本", money(hm.displayCost))}
-                ${dataCell("预计持仓", shareLabel(hm.planned))}
-                ${dataCell("持仓数量", shareLabel(hm.position))}
-                ${dataCell("加仓止损", money(hm.addStopPrice))}
-                ${dataCell("浮动盈亏", money(hm.pnl), hPnlClass)}
-                <div class="data-cell"><span class="badge amber">加仓</span></div>
+            <div class="pos-extra hist">
+              <div class="pos-cell">
+                <span class="tag">加仓${hp}</span>
+              </div>
+              <div class="pos-cell num">
+                <strong>${money(hm.displayCp)}</strong>
+                <small>${money(hm.displayCost)}</small>
+              </div>
+              <div class="pos-cell num">
+                <strong>${money(hm.marketValue)}</strong>
+                <small>${shareLabel(hm.position)}</small>
+              </div>
+              <div class="pos-cell num">
+                <strong class="${hPnlClass}">${money(hm.pnl)}</strong>
+                <small>${money(hm.addStopPrice)}</small>
               </div>
             </div>`;
             })
             .join("");
           return `
-          <div class="position-group">
+          <div class="pos-block ${blockClass}">
             <article class="card position-card ${m.breach ? "risk" : ""} ${open ? "open" : ""} ${tradeOpen ? "trade" : ""}">
-              <div class="position-main">
-                <div class="stock-cell">
-                  <input class="mono stock-code-input tab-field" data-row-id="${row.id}" data-field="symbol" value="${escapeHtml(row.symbol)}" placeholder="代码" oninput="setRowValue('${row.id}', 'symbol', this.value)" onblur="finishRowEdit()" />
-                  <div class="stock-actions">
-                    <button class="pill blue" type="button" onclick="toggleTrade('${row.id}', event)">${tradeOpen ? "收起" : "加仓"}</button>
-                    <button class="pill" type="button" onclick="toggleRow('${row.id}'); event.stopPropagation()">${open ? "收起" : "风控"}</button>
-                    <button class="pill red" type="button" onclick="deleteRow('${row.id}', event)">删</button>
-                  </div>
+              <div class="pos-row">
+                <div class="pos-cell">
+                  <input class="code-input tab-field" data-row-id="${row.id}" data-field="symbol" value="${escapeHtml(row.symbol)}" placeholder="代码" oninput="setRowValue('${row.id}', 'symbol', this.value)" onblur="finishRowEdit()" />
+                  <span class="status-chip-mini ${statusClass}">${m.alert}</span>
                 </div>
-                <div class="data-cell mono" data-main-market="${row.id}"><small>市值</small><strong>${money(rowMarketTotal)}</strong></div>
-                ${dataCell("现价", money(n(row.currentPrice)))}
-                ${dataCell("成本", money(n(row.costPrice)))}
-                ${dataCell("预计持仓", shareLabel(n(row.plannedPosition)))}
-                ${dataCell("持仓数量", shareLabel(n(row.position)))}
-                <div class="data-cell mono" data-main-add-stop="${row.id}"><small>加仓止损</small><strong>${money(m.addStopPrice)}</strong></div>
-                ${dataCell("浮动盈亏", money(m.pnl), pnlClass)}
-                <div class="data-cell"><span class="${badgeClass}">${m.alert}</span></div>
+                <div class="pos-cell num">
+                  <strong>${money(n(row.currentPrice))}</strong>
+                  <small>${money(n(row.costPrice))}</small>
+                </div>
+                <div class="pos-cell num" data-main-market="${row.id}">
+                  <strong>${money(rowMarketTotal)}</strong>
+                  <small>${shareLabel(n(row.position))}</small>
+                </div>
+                <div class="pos-cell num">
+                  <strong class="${pnlClass}">${money(m.pnl)}</strong>
+                  <small data-main-add-stop="${row.id}"><strong>${money(m.addStopPrice)}</strong></small>
+                </div>
+              </div>
+              <div class="pos-actions">
+                <button class="action-chip quote" type="button" data-quote-btn="${row.id}" onclick="fetchQuote('${row.id}', event)">刷新价</button>
+                <button class="action-chip primary" type="button" onclick="toggleTrade('${row.id}', event)">${tradeOpen ? "收起加仓" : "加仓"}</button>
+                <button class="action-chip warn" type="button" onclick="toggleRow('${row.id}'); event.stopPropagation()">${open ? "收起风控" : "风控"}</button>
+                <button class="action-chip danger" type="button" onclick="deleteRow('${row.id}', event)">删</button>
               </div>
               ${testRow2Html}
               <div class="detail">
                 <div class="risk-intro">
                   <h3>风控 · 头寸录入</h3>
-                  <p class="sub">在此填写现价、成本、预计持仓、持仓数量；填完后点<strong>确认</strong>写入主表并收起；亦可在「加仓」中<strong>合并到头寸</strong>。</p>
                 </div>
                 <div class="metrics" style="margin-top: 0">
                   <h3>头寸（主表数据源）</h3>
@@ -1356,13 +2000,6 @@
                   <div class="grid">
                     ${input(row, "dayPnl", "当日盈亏")}
                     ${input(row, "stopLossAmount", "计划止损额")}
-                  </div>
-                </div>
-                <div class="metrics">
-                  <h3>加仓测算</h3>
-                  <p class="sub" style="margin:0 0 8px">填写内容会同步到主表下方「测试行2」行，展示加仓合计（总加仓金额、总加仓数、总止损额等）。</p>
-                  <div class="metric-grid mono">
-                    ${metric("加仓止损价（与主表同列）", `<span data-add-metric-stop="${row.id}">${money(m.addStopPrice)}</span>`)}
                   </div>
                 </div>
                 <div class="metrics">
@@ -1384,7 +2021,6 @@
                   <div class="drawer-head">
                     <div>
                       <p class="drawer-title">加仓</p>
-                      <p class="sub">填写加仓价格、加仓数、止损额；合并后写入风控头寸与计划止损额；历次合并明细在主表下方展示。</p>
                     </div>
                     <span class="status-chip ${tradeStatus.className}" data-add-status="${row.id}">${tradeStatus.text}</span>
                   </div>
@@ -1399,30 +2035,13 @@
                   </div>
                   <div class="merge-row">
                     <button ${actionBtn(`mergeAddIntoRisk('${row.id}', event)`)}>合并到头寸</button>
-                    <span class="sub">加权成本 · 现价=加仓价 · 持仓+=加仓数 · 预计+=加仓数 · 止损额并入</span>
                   </div>
                 </div>
               </div>
             </article>${histHtml}
           </div>`;
         }).join("");
-        box.innerHTML = `
-          <div class="monitor-scroll">
-            <div class="monitor-table">
-              <div class="table-head">
-                <span>代码</span>
-                <span>市值</span>
-                <span>现价</span>
-                <span>成本</span>
-                <span>预计持仓</span>
-                <span>持仓数量</span>
-                <span>加仓止损</span>
-                <span>浮动盈亏</span>
-                <span>状态</span>
-              </div>
-              ${body}
-            </div>
-          </div>`;
+        box.innerHTML = body;
         updateRiskPulse(hasRisk);
       }
 
